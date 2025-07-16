@@ -13,6 +13,7 @@ homepage="https://github.com/jarun/nnn"
 changelog="https://raw.githubusercontent.com/jarun/nnn/master/CHANGELOG"
 distfiles="https://github.com/jarun/nnn/archive/v${version}.tar.gz"
 checksum=9faaff1e3f5a2fd3ed570a83f6fb3baf0bfc6ebd6a9abac16203d057ac3fffe3
+make_check=no # There are no tests to run
 
 if [ "$XBPS_TARGET_LIBC" = "musl" ]; then
 	makedepends+=" musl-fts-devel"
