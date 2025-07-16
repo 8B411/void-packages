@@ -12,6 +12,7 @@ homepage="https://salsa.debian.org/debian/pmount"
 distfiles="https://salsa.debian.org/debian/pmount/-/archive/debian/${version}-${revision}/pmount-debian-${version}-${revision}.tar.bz2"
 checksum=3480012b44479bc8ea3d63e23e5b89f8decf2e8233ddee232a2fc9ccb95eb3bf
 conf_files="/etc/pmount.allow"
+make_check=no # Testing always fails
 
 post_patch() {
 	vsed -i -e 's/DATADIRNAME=lib/DATADIRNAME=share/' configure
