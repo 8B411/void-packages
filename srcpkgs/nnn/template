@@ -7,7 +7,7 @@ make_install_target="install install-desktop"
 hostmakedepends="pkg-config"
 makedepends="ncurses-devel readline-devel"
 short_desc="Missing terminal file browser for X"
-maintainer="Orphaned <orphan@voidlinux.org>"
+maintainer="8B411 <8B411@disroot.org>"
 license="BSD-2-Clause"
 homepage="https://github.com/jarun/nnn"
 changelog="https://raw.githubusercontent.com/jarun/nnn/master/CHANGELOG"
@@ -31,6 +31,12 @@ post_install() {
 		usr/share/zsh/site-functions
 	vinstall misc/auto-completion/fish/nnn.fish 644 \
 		usr/share/fish/vendor_completions.d
+
+	vmkdir usr/share/${pkgname}/plugins
+	install -m755 plugins/{.*,*[!.md]} \
+		${DESTDIR}/usr/share/${pkgname}/plugins
+	vcopy misc/quitcd \
+		usr/share/${pkgname}/quitcd
 
 	vlicense LICENSE
 }
